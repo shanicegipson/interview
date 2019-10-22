@@ -19,13 +19,26 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('GET_REVIEWS', getReviews);
+    yield takeEvery('ADD_REVIEW', postReview)
 }
 
 //GET request for reviews using generator functions
 function* getReviews() {
     try {
-        const response = yield axios.get('/review');
+        const response = yield axios.get('/api/review/');
         yield put ({type: 'SET_REVIEW', payload:response.data});
+    }
+    catch(err) {
+        console.log('Error in GET', err);
+    }
+}   
+
+//POST request to send review from form to DB
+function* postReview() {
+    try {
+        const response = yield axios.get('/api/review/add');
+        yield put ({type: 'ADD_REVIEW', payload:response.data});
+        console.log(response.data, 'this is the payload');
     }
     catch(err) {
         console.log('Error in GET', err);

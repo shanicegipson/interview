@@ -14,6 +14,8 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../modules/mapStoreToProps';
 import { grey } from '@material-ui/core/colors';
 import Map from '../Map/Map';
+import GeocoderInput from '../Geocoder/Geocoder';
+
 
 
 //Material-ui styling
@@ -42,32 +44,38 @@ const styles = (theme: Theme) =>
       margin: theme.spacing(3, 0, 2),
       // backgroundColor: '#a4bd83'
     },
+    formHeader: {
+      textAlign: 'center'
+    },
+    header: {
+      textAlign: 'center',
+      color: '#303f9f'
+    }
   });
 
 
 class App extends Component {
   state = {
-    name: '',
     businessName: '',
     address: '',
     review: '',
   };
 
-  login = (event) => {
+  review = (event) => {
     event.preventDefault();
 
-    if (this.state.name && this.state.businessName) {
+    if (this.state.businessName
+      && this.state.address && this.state.review) {
       this.props.dispatch({
-        type: 'LOGIN',
+        type: 'ADD_REVIEW',
         payload: {
-          name: this.state.name,
           businessName: this.state.businessName,
           address: this.state.address,
           review: this.state.review,
         },
       });
     } else {
-      this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
+      alert('please try again')
     }
   } // end login
 
@@ -75,93 +83,87 @@ class App extends Component {
     this.setState({
       [propertyName]: event.target.value,
     })
+    console.log(event.target.value, 'captured value')
   }
 
   render() {
+   
     return (
-      
-      <Container component="main" maxWidth="xs">
+
+      <Container component="main" maxWidth="lg">
         <CssBaseline />
-        
+
         <div className={this.props.classes.paper}>
-        <Grid container spacing={3}>
-            <Grid item xs={8}>
-            <Typography component="h1" variant="h5">
-            Leave a Review
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <Typography className={this.props.classes.header} variant='h1'>My Review</Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Typography component="h1" variant="h5" className={this.props.classes.formHeader} >
+                Leave a Review
             </Typography>
-          <form className={this.props.classes.form} onSubmit={this.login}>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="name"
-              label="Name"
-              name="name"
-              autoComplete="name"
-              autoFocus
-              value={this.state.name}
-              onChange={this.handleInputChangeFor('name')}
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="business name"
-              label="Business name"
-              type="business name"
-              id="business name"
-              autoComplete="business name"
-              value={this.state.businessName}
-              onChange={this.handleInputChangeFor('businessName')}
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="business address"
-              label="Business Address"
-              type="business address"
-              id="business address"
-              autoComplete="business address"
-              value={this.state.address}
-              onChange={this.handleInputChangeFor('address')}
-            />
-            <TextField
-              id="outlined-dense-multiline"
-              label="Please leave your review here"
-              required
-              fullWidth
-              margin="normal"
-              variant="outlined"
-              multiline
-              rowsMax="10"
-              value={this.state.review}
-              onChange={this.handleInputChangeFor('review')}
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={this.props.classes.submit}
-              onClick={() => { this.props.dispatch({ type: 'FETCH_USER' }) }}
-            >
-              Submit
+              <form className={this.props.classes.form}>
+
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="business name"
+                  label="Business name"
+                  type="business name"
+                  id="business name"
+                  autoComplete="business name"
+                  value={this.state.businessName}
+                  onChange={this.handleInputChangeFor('businessName')}
+                />
+                <GeocoderInput />
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="business address"
+                  label="Business Address"
+                  type="business address"
+                  id="business address"
+                  autoComplete="business address"
+                  value={this.state.address}
+                  onChange={this.handleInputChangeFor('address')}
+                />
+                <TextField
+                    id="outlined-dense-multiline"
+                    label="Please leave your review here"
+                    required
+                    fullWidth
+                    margin="normal"
+                    variant="outlined"
+                    multiline
+                    rowsMax="10"
+                    value={this.state.review}
+                    onChange={this.handleInputChangeFor('review')}
+                />
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={this.props.classes.submit}
+                  onClick={this.review}
+                >
+                  Submit
           </Button>
 
-          </form>
+              </form>
             </Grid>
             <Grid item xs={6}>
               <Map />
-            </Grid>   
-            </Grid>  
+            </Grid>
+          </Grid>
         </div>
-        
+
       </Container>
-      
+
     );
   }
 }
