@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import {createStore, combineReducers, applyMiddleware } from 'redux';
+
 import App from '../src/components/App/App';
 import * as serviceWorker from './serviceWorker';
 
-import {createStore, combineReducers, applyMiddleware } from 'redux';
+
 
 // Provider allows us to use redux within our react app
 import { Provider } from 'react-redux';
@@ -26,6 +27,7 @@ function* rootSaga() {
 function* getReviews() {
     try {
         const response = yield axios.get('/api/review/');
+        
         yield put ({type: 'SET_REVIEW', payload:response.data});
     }
     catch(err) {
@@ -34,14 +36,14 @@ function* getReviews() {
 }   
 
 //POST request to send review from form to DB
-function* postReview() {
+function* postReview(action) {
     try {
-        const response = yield axios.get('/api/review/add');
-        yield put ({type: 'ADD_REVIEW', payload:response.data});
+        const response = yield axios.post('/api/review/add', action.payload);
+        
         console.log(response.data, 'this is the payload');
     }
     catch(err) {
-        console.log('Error in GET', err);
+        console.log('Error in POST', err);
     }
 }   
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   Button,
   CssBaseline,
-  TextField,
   Container,
   Typography,
   Grid
@@ -15,6 +14,7 @@ import mapStoreToProps from '../../modules/mapStoreToProps';
 import { grey } from '@material-ui/core/colors';
 import Map from '../Map/Map';
 import GeocoderInput from '../Geocoder/Geocoder';
+
 
 
 
@@ -62,11 +62,7 @@ class App extends Component {
   };
 
   review = (event) => {
-    event.preventDefault();
-
-    if (this.state.businessName
-      && this.state.address && this.state.review) {
-      this.props.dispatch({
+    this.props.dispatch({
         type: 'ADD_REVIEW',
         payload: {
           businessName: this.state.businessName,
@@ -74,9 +70,7 @@ class App extends Component {
           review: this.state.review,
         },
       });
-    } else {
-      alert('please try again')
-    }
+    
   } // end login
 
   handleInputChangeFor = propertyName => (event) => {
@@ -103,43 +97,21 @@ class App extends Component {
                 Leave a Review
             </Typography>
               <form className={this.props.classes.form}>
-
-                <TextField
-                  variant="outlined"
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="business name"
-                  label="Business name"
-                  type="business name"
-                  id="business name"
-                  autoComplete="business name"
+                <input
+                  type='text'
+                  placeholder='Business Name'
                   value={this.state.businessName}
                   onChange={this.handleInputChangeFor('businessName')}
                 />
-                <GeocoderInput />
-                <TextField
-                  variant="outlined"
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="business address"
-                  label="Business Address"
-                  type="business address"
-                  id="business address"
-                  autoComplete="business address"
-                  value={this.state.address}
-                  onChange={this.handleInputChangeFor('address')}
+                <br />
+                <GeocoderInput                 
+                  // value={this.state.address}
+                  // onChange={this.handleInputChangeFor('address')}
                 />
-                <TextField
-                    id="outlined-dense-multiline"
-                    label="Please leave your review here"
-                    required
-                    fullWidth
-                    margin="normal"
-                    variant="outlined"
-                    multiline
-                    rowsMax="10"
+                 <br />
+                <textarea
+                    type='text'
+                    placeholder='Leave a review'
                     value={this.state.review}
                     onChange={this.handleInputChangeFor('review')}
                 />

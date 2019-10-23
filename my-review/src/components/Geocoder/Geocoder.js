@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Geocoder from 'react-mapbox-gl-geocoder';
 
+
 class GeocoderInput extends Component {
     state = {
         viewpoint: {
@@ -28,12 +29,15 @@ class GeocoderInput extends Component {
             country: 'us'
         }
 
+        const bbox = [139.965, -38.030, 155.258, -27.839];
+
         return (
             <div>
                 <Geocoder
-                    {...mapAccess} onSelected={this.onSelected} viewport={this.state.viewport} hideOnSelect={true}
+                    accessToken={...mapAccess} 
+                    onSelected={this.onSelected} viewport={this.state.viewport} hideOnSelect={true}
                     // localGeocoder={this.metropolitanArea}
-                    queryParams={queryParams}
+                    queryParams={queryParams} bbox={bbox}
                 />
             </div>
 
