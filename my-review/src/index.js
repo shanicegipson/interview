@@ -1,81 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore, combineReducers, applyMiddleware } from 'redux';
-
-import App from '../src/components/App/App';
-import * as serviceWorker from './serviceWorker';
-
-
-
-// Provider allows us to use redux within our react app
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import logger from 'redux-logger';
-
-// Import saga middleware
 import createSagaMiddleware from 'redux-saga';
-import { takeEvery, put} from 'redux-saga/effects';
-import axios from 'axios';
+import logger from 'redux-logger';
+import rootReducer from './redux/reducers/_root.reducer'; // imports ./redux/reducers/index.js
+import rootSaga from './redux/sagas/_root.saga'; // imports ./redux/sagas/index.js
 
+import App from './components/App/App';
 
-// Create the rootSaga generator function
-function* rootSaga() {
-    yield takeEvery('GET_REVIEWS', getReviews);
-    yield takeEvery('ADD_REVIEW', postReview)
-}
-
-//GET request for reviews using generator functions
-function* getReviews() {
-    try {
-        const response = yield axios.get('/api/review/');
-        
-        yield put ({type: 'SET_REVIEW', payload:response.data});
-    }
-    catch(err) {
-        console.log('Error in GET', err);
-    }
-}   
-
-//POST request to send review from form to DB
-function* postReview(action) {
-    try {
-        const response = yield axios.post('/api/review/add', action.payload);
-        
-        console.log(response.data, 'this is the payload');
-    }
-    catch(err) {
-        console.log('Error in POST', err);
-    }
-}   
-
-
-// Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
-// Used to store reviews returned from the server
-const review = (state = {}, action) => {
-    switch (action.type) {
-        case 'SET_REVIEW':
-            return action.payload;
-        default:
-            return state;
-    }
-}
+// this line creates an array of all of redux middleware you want to use
+// we don't want a whole ton of console logs in our production code
+// logger will only be added to your project if your in development mode
+const middlewareList = process.env.NODE_ENV === 'development' ?
+  [sagaMiddleware, logger] :
+  [sagaMiddleware];
 
-// Create one store that all components can use
-const storeInstance = createStore(
-    combineReducers({
-        review
-    }),
-    // Add sagaMiddleware to our store
-    applyMiddleware(sagaMiddleware, logger),
+const store = createStore(
+  // tells the saga middleware to use the rootReducer
+  // rootSaga contains all of our other reducers
+  rootReducer,
+  // adds all middleware to our project including saga and logger
+  applyMiddleware(...middlewareList),
 );
 
-// Pass rootSaga into our sagaMiddleware
+// tells the saga middleware to use the rootSaga
+// rootSaga contains all of our other sagas
 sagaMiddleware.run(rootSaga);
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
-    document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'),
+);
