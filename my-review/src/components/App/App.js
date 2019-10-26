@@ -26,13 +26,13 @@ class App extends Component {
             <Typography align='center' variant='h1'>My Review</Typography>
             <br />
             <Typography align='center' variant='subtitle1'>Please add the Business name and
-              review then click submit! Next, to see your review appear on the map simply 
-              search the address and click on the correct entry. </Typography>
+              review then the click next button! Next, to see your review appear on the map simply 
+              search the address and click on the correct address. </Typography>
           </Grid>
           <br />
           <Grid item xs={6}>
-            <Typography component="h1" align='center' variant="h5" >
-              Leave a Review
+            <Typography component="h3" align='center' variant="h5" >
+              Leave Review
             </Typography>
             <Form />
           </Grid>

@@ -9,7 +9,6 @@ import './Form.css';
 class Form extends Component {
     state = {
         businessName: '',
-        address: '',
         review: '',
     };
 
@@ -20,7 +19,6 @@ class Form extends Component {
             type: 'ADD_REVIEW',
             payload: {
                 businessName: this.state.businessName,
-                address: this.state.address,
                 review: this.state.review,
             },
         });
@@ -58,9 +56,8 @@ class Form extends Component {
                     fullWidth
                     variant="contained"
                     color="primary"
-                    onClick={this.review}
                 >
-                    Submit
+                    next
                 </Button>
 
             </form>

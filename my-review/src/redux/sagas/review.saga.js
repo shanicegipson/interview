@@ -17,7 +17,7 @@ function* getReviews() {
 function* postReview(action) {
     try {
         const response = yield axios.post('/api/review/add', action.payload);
-        
+        console.log(action.payload, 'this is the payload');
         console.log(response.data, 'this is the payload');
     }
     catch(err) {

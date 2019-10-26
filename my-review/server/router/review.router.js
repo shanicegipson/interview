@@ -1,6 +1,6 @@
 const express = require('express');
 const pool = require('../modules/pool');
-const Promise = require('es6-promise').Promise;
+
 
 const router = express.Router();
 

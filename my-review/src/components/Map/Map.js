@@ -63,6 +63,13 @@ class Map extends Component {
         });
         //this returns long and lat
         console.log('event.result.geometry: ', event.result.geometry, );
+        this.props.dispatch({
+            type: 'ADD_REVIEW',
+            payload: {
+                searchResultLayer: new
+            }
+
+        })
     };
 
     render() {
