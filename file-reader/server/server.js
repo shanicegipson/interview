@@ -1,7 +1,18 @@
-const fs = require('fs');
+const express = require('express');
+const bodyParser = require ('body-parser');
 
-fs.readFile('Input.txt', 'utf-8' (err,data) => {
-    if (err) throw err;
+const app = express();
+const PORT = 5000;
 
-    console.log(data.toString());
-})
+const fileRouter = require('./routes/readfile.router');
+
+app.use(express.static('server/public'));
+app.use(bodyParser.urlencoded({ extended:true}));
+app.use(bodyParser.json());
+
+
+app.use('/api/read', fileRouter);
+
+app.listen(PORT, () => {
+    console.log('listening on port', PORT);
+});

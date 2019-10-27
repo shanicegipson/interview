@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="index.css">
+    <script src="vendors/jQuery.js"></script>
     <script src="scripts/client.js"></script>
-    
+
     <title>File Reader</title>
 </head>
+
 <body>
     <h1>Upload Text File Below</h1>
-    <input id="fileupload" type="file">
+    <div class="form-fields">
+        <input class="file-uploaded" type="file" name="files[]" multiple />
+        <button class="file-submit">Upload File</button>
+    </div>
+
 </body>
+
 </html>
