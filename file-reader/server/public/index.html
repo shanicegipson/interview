@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="index.css">
-    <script src="vendors/jQuery.js"></script>
-    <script src="scripts/client.js"></script>
 
     <title>File Reader</title>
 </head>
@@ -15,8 +13,10 @@
 <body>
     <h1>Upload Text File Below</h1>
     <div class="form-fields">
-        <input class="file-uploaded" type="file" name="files[]" multiple />
-        <button class="file-submit">Upload File</button>
+        <form action="fileupload" method="post" enctype="multipart/form-data">
+            <input  type="file" name="filetoupload" />
+            <input type="submit" value="Upload" />
+        </form>
     </div>
 
 </body>
