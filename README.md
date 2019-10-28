@@ -16,4 +16,6 @@
 ## My-Review:
 * The user is able to enter in a Business name and Review and submit the form. The user is also able to use the geolactor on the map to search the address.
 * For next steps I would:
+ * Create a reducer to hold information from the form and the gelocator then send the information to the DB
+ * Create a GET to get Business Name, Review and Lat and Lon from table and connect with a marker on the map
 
