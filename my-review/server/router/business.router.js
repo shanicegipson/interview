@@ -2,7 +2,9 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-router.post('/', (req, res) => {
+
+//This will POST the business information from the form
+router.post('/add', (req, res) => {
     console.log(req.body, 'in the business router');
     const businessName = req.body;
     const review = req.body;
