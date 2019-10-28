@@ -6,6 +6,8 @@ import './Form.css';
 // import Geolocation from '../Geocoder/Geocoder';
 
 
+//Will take in the business name and review
+
 class Form extends Component {
     state = {
         businessName: '',
@@ -16,7 +18,7 @@ class Form extends Component {
     review = (event) => {
         event.preventDefault();
         this.props.dispatch({
-            type: 'ADD_REVIEW',
+            type: 'ADD_BUSINESS',
             payload: {
                 businessName: this.state.businessName,
                 review: this.state.review,
@@ -42,7 +44,7 @@ class Form extends Component {
                     onChange={this.handleInputChangeFor('businessName')}
                     className="buisnessName-input"
                 />
-                <br />
+               
                 <br />
                 <textarea
                     type='text'
@@ -57,7 +59,7 @@ class Form extends Component {
                     variant="contained"
                     color="primary"
                 >
-                    next
+                    submit
                 </Button>
 
             </form>

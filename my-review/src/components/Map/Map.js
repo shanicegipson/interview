@@ -39,7 +39,6 @@ class Map extends Component {
         console.log('viewport:', viewport);
     };
 
-    // if you are happy with Geocoder default settings, you can just use handleViewportChange directly
     handleGeocoderViewportChange = viewport => {
         const
             geocoderDefaultOverrides = { transitionDuration: 1000 };
@@ -64,9 +63,10 @@ class Map extends Component {
         //this returns long and lat
         console.log('event.result.geometry: ', event.result.geometry, );
         this.props.dispatch({
-            type: 'ADD_REVIEW',
+            type: 'ADD_COORDINATES',
             payload: {
-                searchResultLayer: new
+                longitude: event.result.geometry.coordinates[0],
+                latitude: event.result.geometry.coordinates[1]
             }
 
         })
