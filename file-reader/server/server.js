@@ -9,7 +9,7 @@ app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({ extended:true}));
 app.use(bodyParser.json());
 
-
+//will send file to be read
 app.use('/api/read', fileRouter);
 
 
