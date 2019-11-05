@@ -2,6 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+//This will POST the coordinates information from the the map based on click to the DB
 router.post('/', (req, res) => {
     console.log(req.body, 'in the coordinates router');
     const latitude = req.body;

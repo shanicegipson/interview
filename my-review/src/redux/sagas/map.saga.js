@@ -2,7 +2,7 @@ import axios from 'axios';
 import { takeLatest } from 'redux-saga/effects';
 
 
-//POST request to send review from form to DB
+//POST request to send coordinates from map information to server
 function* postCoordinates(action) {
     try {
         const response = yield axios.post('/api/coordinates/add', action.payload);
@@ -14,7 +14,7 @@ function* postCoordinates(action) {
     }
 }   
 
-// Create the mapSaga generator functions
+// Create the mapSaga generator function that will hear the dispatch and run postCoordinates
 function* mapSaga() {
     yield takeLatest('ADD_COORDINATES', postCoordinates)
 }

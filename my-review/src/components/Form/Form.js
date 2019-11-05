@@ -10,6 +10,7 @@ import './Form.css';
 
 class Form extends Component {
     state = {
+        address: '',
         businessName: '',
         review: '',
     };
@@ -42,16 +43,24 @@ class Form extends Component {
                     placeholder='Business Name'
                     value={this.state.businessName}
                     onChange={this.handleInputChangeFor('businessName')}
-                    className="buisnessName-input"
+                    className="input"
                 />
                
+                <br />
+                <input
+                    type='text'
+                    placeholder='Address'
+                    value={this.state.address}
+                    onChange={this.handleInputChangeFor('address')}
+                    className="input"
+                />
                 <br />
                 <textarea
                     type='text'
                     placeholder='Leave a review'
                     value={this.state.review}
                     onChange={this.handleInputChangeFor('review')}
-                    className="buisnessName-input"
+                    className="input"
                 />
                 <Button
                     type="submit"
