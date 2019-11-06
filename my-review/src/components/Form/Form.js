@@ -10,8 +10,8 @@ import './Form.css';
 
 class Form extends Component {
     state = {
-        address: '',
         businessName: '',
+        address: '',
         review: '',
     };
 
@@ -22,6 +22,7 @@ class Form extends Component {
             type: 'ADD_BUSINESS',
             payload: {
                 businessName: this.state.businessName,
+                address: this.state.address,
                 review: this.state.review,
             },
         });

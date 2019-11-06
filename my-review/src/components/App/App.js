@@ -9,6 +9,7 @@ import {
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../modules/mapStoreToProps';
 import Form from '../Form/Form';
+import Map from '../Map/Map';
 
 
 class App extends Component {
@@ -36,7 +37,7 @@ class App extends Component {
             <Form />
           </Grid>
           <Grid item xs={6}>
-  
+            <Map />
           </Grid>
         </Grid>
       </Container>
