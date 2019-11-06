@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vendors/jQuery.js"></script>
+    <script src="scripts/client.js"></script>
     <link rel="stylesheet" href="index.css">
 
     <title>File Reader</title>
@@ -12,10 +14,10 @@
 
 <body>
     <h1>Upload Text File Below</h1>
-    <div class="form-fields">
-        <input class="file-uploaded" type="file" name="filetoupload" />
-        <button class="file-submit" type="submit">Submit</button>
-    </div>
+    <form>
+        <input type= "file" id= "fileUploadControl" accept="text/plain" />
+        <textarea id="fileDisplay"  rows="10"></textarea>
+    </form>
 
 </body>
 

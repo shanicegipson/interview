@@ -1,27 +1,19 @@
-$(document).ready(init);
+$(document).ready(function() {
+    $("#fileUploadControl").on("change", fileUpload);
+});
 
-function init() {
-    $('.file-submit').on('click', addFile);
-    // getReadFile();
-}
+function fileUpload (event) {
+    let fileUploadedPath = event.target.value;
+    console.log(fileUploadedPath, 'this is the file that was uploaded');
+    let file = fileUploadedPath;
+    console.log(file, 'this is the file that was uploaded');
+    
 
-//takes in file from upload and gives it path
-//need to add code to get to just the file
-function addFile () {
-    let file = $('.file-uploaded').val();
-    console.log(file, 'this is the file');
+    // let fileReader = new FileReader();
 
-    postFileToRead(file);
-}
-//will send file to server
-function postFileToRead(file) {
-    console.log(file, 'File being sent to server');
-    console.log(typeof file);
-    $.ajax({
-        type: 'POST',
-        url: `api/read`,
-        data: {path: file}
-    }).then((response) => {
-        // getReadFile();
-    })
+    // fileReader.onload = function(event){
+    //     let fileContents = event.target.result;
+    //     $("#fileDisplay").text(fileContents);
+    // }
+    // fileReader.readAsText(file);
 }

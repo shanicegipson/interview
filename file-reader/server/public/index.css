@@ -7,10 +7,7 @@ h1 {
  margin-top: 5%;
 }
 
-input {
-    text-align: center;
-}
-
-.form-field {
-    align-content: center;
+textarea {
+    font-size: 12px;
+    width: 80%;
 }
