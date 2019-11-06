@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import GoogleMapReact from 'google-map-react';
 import mapStoreToProps from '../../modules/mapStoreToProps';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+// const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class Map extends Component {
     static defaultProps = {
@@ -11,7 +11,7 @@ class Map extends Component {
           lat: 39.099724,
           lng: -94.578331
         },
-        zoom: 11
+        zoom: 12
       };
     render(){
         return (
@@ -22,11 +22,7 @@ class Map extends Component {
                 defaultCenter={this.props.center}
                 defaultZoom={this.props.zoom}
               >
-                <AnyReactComponent
-                  lat={39.099724}
-                  lng={-94.578331}
-                  text="Hey Girl"
-                />
+            
               </GoogleMapReact>
             </div>
           );

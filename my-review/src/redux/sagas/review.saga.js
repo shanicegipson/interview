@@ -16,9 +16,8 @@ function* getReviews() {
 //POST request to send review from form to DB
 function* postReview(action) {
     try {
-        const response = yield axios.post('/api/review/add', action.payload);
-        console.log(action.payload, 'this is the payload');
-        console.log(response.data, 'this is the data');
+        const response = yield axios.post('api/review/map', action.payload);
+        console.log('this should get the lat and long', response.data)
     }
     catch(err) {
         console.log('Error in POST', err);
@@ -28,7 +27,7 @@ function* postReview(action) {
 // Create the reviewSaga generator function
 function* reviewSaga() {
     yield takeLatest('GET_REVIEWS', getReviews);
-    yield takeLatest('ADD_REVIEW', postReview)
+    yield takeLatest('POST_REVIEW', postReview)
 }
 
 

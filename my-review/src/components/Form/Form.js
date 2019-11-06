@@ -19,7 +19,7 @@ class Form extends Component {
     review = (event) => {
         event.preventDefault();
         this.props.dispatch({
-            type: 'ADD_BUSINESS',
+            type: 'POST_REVIEW',
             payload: {
                 businessName: this.state.businessName,
                 address: this.state.address,
