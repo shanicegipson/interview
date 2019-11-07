@@ -1,19 +1,22 @@
-$(document).ready(function() {
-    $("#fileUploadControl").on("change", fileUpload);
+$(document).ready(function () {
+    $("#uploadForm").on("change", fileUpload);
 });
 
-function fileUpload (event) {
-    let fileUploadedPath = event.target.value;
-    console.log(fileUploadedPath, 'this is the file that was uploaded');
-    let file = fileUploadedPath;
-    console.log(file, 'this is the file that was uploaded');
-    
+function fileUpload() {
+    let files =event.target.files
+    console.log(files, 'this is the file?');
+    let filename =files[0].name
+    console.log(filename, 'this is the filename?');
+    let file = filename
+    console.log(file, 'file to be sent');
 
-    // let fileReader = new FileReader();
-
-    // fileReader.onload = function(event){
-    //     let fileContents = event.target.result;
-    //     $("#fileDisplay").text(fileContents);
-    // }
-    // fileReader.readAsText(file);
+    $.ajax({
+        type:'POST',
+        url: '/api/read',
+        data: file
+    }).then((response) => {
+        console.log(response);
+        getData();
+    });
 }
+

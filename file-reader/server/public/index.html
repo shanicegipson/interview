@@ -14,9 +14,9 @@
 
 <body>
     <h1>Upload Text File Below</h1>
-    <form>
-        <input type= "file" id= "fileUploadControl" accept="text/plain" />
-        <textarea id="fileDisplay"  rows="10"></textarea>
+    <form id="uploadForm" enctype="multipart/form-data" action="/api/read" method="POST">
+        <input type= "file" name="fileUploaded" />
+        <input type="submit" id="submit"/>
     </form>
 
 </body>
