@@ -2,16 +2,16 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 //GET request for reviews using generator functions
-function* getReviews() {
-    try {
-        const response = yield axios.get('/api/review/');
+// function* getReviews() {
+//     try {
+//         const response = yield axios.get('/api/review/');
         
-        yield put ({type: 'SET_REVIEW', payload:response.data});
-    }
-    catch(err) {
-        console.log('Error in GET', err);
-    }
-}   
+//         yield put ({type: 'SET_REVIEW', payload:response.data});
+//     }
+//     catch(err) {
+//         console.log('Error in GET', err);
+//     }
+// }   
 
 //POST request to send review from form to DB
 function* postReview(action) {
@@ -26,7 +26,7 @@ function* postReview(action) {
 
 // Create the reviewSaga generator function
 function* reviewSaga() {
-    yield takeLatest('GET_REVIEWS', getReviews);
+    // yield takeLatest('GET_REVIEWS', getReviews);
     yield takeLatest('POST_REVIEW', postReview)
 }
 
