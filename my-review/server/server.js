@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
-app.use('api/review', reviewRouter);
+app.use('/api/review/map', reviewRouter);
 
 
 

@@ -15,7 +15,7 @@ class Form extends Component {
         review: '',
     };
 
-    
+
     review = (event) => {
         event.preventDefault();
         this.props.dispatch({
@@ -26,6 +26,11 @@ class Form extends Component {
                 review: this.state.review,
             },
         });
+        this.setState({
+            businessName: '',
+            address: '',
+            review: '',
+        })
     }
 
     handleInputChangeFor = propertyName => (event) => {
@@ -46,7 +51,7 @@ class Form extends Component {
                     onChange={this.handleInputChangeFor('businessName')}
                     className="input"
                 />
-               
+
                 <br />
                 <input
                     type='text'
