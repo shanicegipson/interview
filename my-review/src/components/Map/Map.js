@@ -8,6 +8,9 @@ import Modal from '../Modal/Modal';
 // const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class Map extends Component {
+  componentDidMount() {
+    this.props.dispatch({type: 'GET_REVIEWS'});
+}
   state = {
     modalIsShowing: false,
   }

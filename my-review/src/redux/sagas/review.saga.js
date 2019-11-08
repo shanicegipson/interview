@@ -6,8 +6,8 @@ function* getReviews() {
     try {
         console.log('this is a get');
         const response = yield axios.get('/api/review/map');
-        console.log(response.data, 'this is the information from the GET');
-        yield put ({type: 'GET_REVIEWS', payload:response.data});
+        console.log(response, 'this is the information from the GET dhahldfhdahkhdsahdskhdsfh');
+        yield put ({type: 'SET_REVIEWS', payload:response.data});
     }
     catch(err) {
         console.log('Error in GET', err);
@@ -17,7 +17,7 @@ function* getReviews() {
 //POST request to send review from form to DB
 function* postReview(action) {
     try {
-        const response = yield axios.post('/api/review/map', action.payload);  
+       yield axios.post('/api/review/map', action.payload);  
     }
     catch(err) {
         console.log('Error in POST', err);

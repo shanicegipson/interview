@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../modules/mapStoreToProps';
 import Form from '../Form/Form';
 import Map from '../Map/Map';
+import axios from 'axios';
 
 
 class App extends Component {

@@ -14,9 +14,9 @@ router.get('/', (req, res) => {
     const queryText = 'SELECT * FROM "review";';
 
     pool.query(queryText)
-        .then((result) => {
-            console.log('Results from GET', result);
-            res.send(result.rows);
+        .then((response) => {
+            console.log('Results from GET', response);
+            res.send(response.rows);
         })
         .catch((err) => {
             console.log('Error on GET', err);
