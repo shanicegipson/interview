@@ -16,6 +16,7 @@ function* getReviews() {
 function* postReview(action) {
     try {
        yield axios.post('/api/review/map', action.payload);  
+       yield put({ type: 'GET_REVIEWS' });
     }
     catch(err) {
         console.log('Error in POST', err);

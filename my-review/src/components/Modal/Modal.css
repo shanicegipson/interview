@@ -1,0 +1,23 @@
+.modal{
+    width: 30%;
+    background-color: rgb(43, 43, 194);
+    color: whitesmoke;
+    border: 1px solid white;
+    box-shadow: 4px 4px 7px rgba(0,0,0,0.2) ;
+    position: absolute;
+    z-index: 6;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-bottom: 30%;
+    margin-right: 5%;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+}
+
+.modal-content{
+    text-align: center;
+}
+
+.btn-exit-modal{
+    color: whitesmoke;
+}
