@@ -2,25 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../modules/mapStoreToProps';
 import Button from '@material-ui/core/Button';
+import swal from 'sweetalert2';
 
 class Modal extends Component {
     render(){
-        const review = this.props.store;
-        console.log(review, 'why is the reducer empty?')
-
+        const clickedReview = this.props.store.clickedReview
+        console.log(clickedReview, 'info for clicked review');
         return(
             <div>
-                <div className="modal">
-                    <Button size="large" 
-                        className="btn-exit-modal" 
-                        onClick={this.props.modalToggle}>Close</Button>
-
-                    <div className="modal-content">
-                    
-                       
-                    </div>
-                </div>
-            
+                
             </div>
         )
     }

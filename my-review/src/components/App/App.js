@@ -10,14 +10,14 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../modules/mapStoreToProps';
 import Form from '../Form/Form';
 import Map from '../Map/Map';
-import axios from 'axios';
 
 
 class App extends Component {
 
-
+  componentDidMount() {
+    this.props.dispatch({ type: 'GET_REVIEWS' });
+  }
   render() {
-
     return (
 
       <Container component="main" maxWidth="lg">
@@ -27,7 +27,7 @@ class App extends Component {
             <Typography align='center' variant='h1'>My Review</Typography>
             <br />
             <Typography align='center' variant='subtitle1'>Please add the Business name and
-              review then the click next button! Next, to see your review appear on the map simply 
+              review then the click next button! Next, to see your review appear on the map simply
               search the address and click on the correct address. </Typography>
           </Grid>
           <br />

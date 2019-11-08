@@ -8,9 +8,6 @@ import Modal from '../Modal/Modal';
 // const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class Map extends Component {
-  componentDidMount() {
-    this.props.dispatch({type: 'GET_REVIEWS'});
-}
   state = {
     modalIsShowing: false,
   }
@@ -24,7 +21,19 @@ class Map extends Component {
 
 
   render() {
-    console.log(this.props.store.review, 'This is the review reducer');
+    let reviewArray = this.props.store.review
+    console.log(reviewArray, 'array of reviews?');
+
+
+    // const markerForReview = reviewArray.map((review, index) => {
+    //   return (
+    //     <Marker key={index} 
+    //       lat={review.latitude}
+    //       lng={item.longitude}
+    //       item={item}
+    //     />
+    //   )
+    // });
 
     return (
       // Important! Always set the container height explicitly
@@ -34,6 +43,7 @@ class Map extends Component {
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
+          {/* {markerForReview} */}
 
         </GoogleMapReact>
       </div>

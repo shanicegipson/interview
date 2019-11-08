@@ -4,9 +4,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 //GET request for reviews using generator functions
 function* getReviews() {
     try {
-        console.log('this is a get');
         const response = yield axios.get('/api/review/map');
-        console.log(response, 'this is the information from the GET dhahldfhdahkhdsahdskhdsfh');
         yield put ({type: 'SET_REVIEWS', payload:response.data});
     }
     catch(err) {
