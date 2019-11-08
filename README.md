@@ -14,8 +14,22 @@
 
  
 ## My-Review:
-* The user is able to enter in a Business name and Review and submit the form. The user is also able to use the geolactor on the map to search the address.
-* For next steps I would:
- * Create a reducer to hold information from the form and the gelocator then send the information to the DB
- * Create a GET to get Business Name, Review and Lat and Lon from table and connect with a marker on the map
+* This is a code submission for mySideWalk code challenge Problem #4.
 
+### Usage
+* My Review is a one page application that allows users to enter in a Business name, address and a review and click the submit button. The results will show on the map which is focused on Kansas City, MO. You can zoom in and out to see markers outside of view. By Clicking on marker a modal will appear with review information, click close to exit modal.
+
+
+### Installation
+Use the package manager [npm](https://www.npmjs.com/get-npm) to install npm.
+
+### Database Setup
+
+1. Create a database named `my_review`
+2. Run the queries from `database.sql` on the `my_review` database.
+
+### Install Dependencies
+
+1. `npm install`
+2. `npm run server`
+3. `npm run client`
