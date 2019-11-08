@@ -14,22 +14,10 @@
 
  
 ## My-Review:
-* This is a code submission for mySideWalk code challenge Problem #4.
+* This is a code submission for mySideWalk code challenge Problem #4. cd into my-review folder to run application and follow instructions on my-review README.md to get the application running.
 
-### Usage
+### Description
 * My Review is a one page application that allows users to enter in a Business name, address and a review and click the submit button. The results will show on the map which is focused on Kansas City, MO. You can zoom in and out to see markers outside of view. By Clicking on marker a modal will appear with review information, click close to exit modal.
 
-
-### Installation
-Use the package manager [npm](https://www.npmjs.com/get-npm) to install npm.
-
-### Database Setup
-
-1. Create a database named `my_review`
-2. Run the queries from `database.sql` on the `my_review` database.
-
-### Install Dependencies
-
-1. `npm install`
-2. `npm run server`
-3. `npm run client`
+## ScreenShot
+![](my-review/images/my-review%20screenshot.png
