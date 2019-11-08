@@ -20,4 +20,4 @@
 * My Review is a one page application that allows users to enter in a Business name, address and a review and click the submit button. The results will show on the map which is focused on Kansas City, MO. You can zoom in and out to see markers outside of view. By Clicking on marker a modal will appear with review information, click close to exit modal.
 
 ## ScreenShot
-![](/blob/master/my-review/images/my-review%20screenshot.png)
+![](my-review/images/my-review%20screenshot.png)
