@@ -5,8 +5,6 @@ import mapStoreToProps from '../../modules/mapStoreToProps';
 import Marker from './Marker';
 import Modal from '../Modal/Modal';
 
-// const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
 class Map extends Component {
   state = {
     modalIsShowing: false,
@@ -24,6 +22,7 @@ class Map extends Component {
     let reviewArray = this.props.store.review
     console.log(reviewArray, 'array of reviews?');
 
+//Maps through array to get info for each review
 
     // const markerForReview = reviewArray.map((review, index) => {
     //   return (
@@ -36,7 +35,7 @@ class Map extends Component {
     // });
 
     return (
-      // Important! Always set the container height explicitly
+  
       <div style={{ height: '50vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS }}

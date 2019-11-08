@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('build'));
 
-/** ---------- ROUTES ---------- **/
+/** ---------- ROUTE ---------- **/
 app.use('/api/review/map', reviewRouter);
 
 

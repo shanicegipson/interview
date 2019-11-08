@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-//GET request for reviews using generator functions
+//GET request for reviews, send payload to review reducer
 function* getReviews() {
     try {
         const response = yield axios.get('/api/review/map');
@@ -12,7 +12,7 @@ function* getReviews() {
     }
 }   
 
-//POST request to send review from form to DB
+//POST request to send review info from form to server
 function* postReview(action) {
     try {
        yield axios.post('/api/review/map', action.payload);  
@@ -22,7 +22,7 @@ function* postReview(action) {
     }
 }   
 
-// Create the reviewSaga generator function
+// Creates the reviewSaga generator function, chooses what HTTP based on dispatch
 function* reviewSaga() {
     yield takeLatest('GET_REVIEWS', getReviews);
     yield takeLatest('POST_REVIEW', postReview)

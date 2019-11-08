@@ -4,12 +4,13 @@ const router = express.Router();
 const axios = require('axios');
 require('dotenv').config();
 
-
+//Geocode the address from form waits for Google to respond and sends it to DB reference https://www.npmjs.com/package/@google/maps
 const googleMapsClient = require('@google/maps').createClient({
     key: process.env.REACT_APP_GOOGLE_MAPS,
     Promise: Promise
 })
 
+//GET request for all info from DB
 router.get('/', (req, res) => {
     const queryText = 'SELECT * FROM "review";';
 
@@ -24,6 +25,7 @@ router.get('/', (req, res) => {
         })
 })
 
+//POST request to send review info from form to DB after getting lat and lng from google
 router.post('/', (req, res) => {
     console.log(req.body, 'this is the info on server');
     let reviewInfo = req.body;

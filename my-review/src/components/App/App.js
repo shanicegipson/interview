@@ -13,13 +13,13 @@ import Map from '../Map/Map';
 
 
 class App extends Component {
-
+//Will GET all reviews from DB on page load
   componentDidMount() {
     this.props.dispatch({ type: 'GET_REVIEWS' });
   }
   render() {
     return (
-
+      //Material-ui Grid and styling for main page
       <Container component="main" maxWidth="lg">
         <CssBaseline />
         <Grid container spacing={3}>
@@ -35,9 +35,11 @@ class App extends Component {
             <Typography component="h3" align='center' variant="h5" >
               Leave Review
             </Typography>
+          {/*Sources in Form.js to render on page */}
             <Form />
           </Grid>
           <Grid item xs={6}>
+          {/*Sources in Map.js to render on page */}
             <Map />
           </Grid>
         </Grid>

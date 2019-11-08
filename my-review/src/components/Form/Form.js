@@ -3,19 +3,17 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../modules/mapStoreToProps';
 import Button from '@material-ui/core/Button';
 import './Form.css';
-// import Geolocation from '../Geocoder/Geocoder';
 
-
-//Will take in the business name and review
 
 class Form extends Component {
+    //Sets state as object taking in businessName, address and review from form
     state = {
         businessName: '',
         address: '',
         review: '',
     };
 
-
+//on click of submit button review function will dispatch to the review saga with updated State info
     review = (event) => {
         event.preventDefault();
         this.props.dispatch({
@@ -32,7 +30,7 @@ class Form extends Component {
             review: '',
         })
     }
-
+//handles change on input fields on the form and update state with filled in info
     handleInputChangeFor = propertyName => (event) => {
         this.setState({
             [propertyName]: event.target.value,
