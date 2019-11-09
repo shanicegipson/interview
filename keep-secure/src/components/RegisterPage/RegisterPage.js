@@ -12,10 +12,7 @@ import {
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { withStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { grey } from '@material-ui/core/colors';
-import './LoginPage.css';
 
-
-//Material-ui styling
 const styles = (theme: Theme) =>
   createStyles({
     '@global': {
@@ -31,7 +28,7 @@ const styles = (theme: Theme) =>
     },
     avatar: {
       margin: theme.spacing(1),
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.secondary.main,
     },
     form: {
       width: '100%', // Fix IE 11 issue.
@@ -40,63 +37,62 @@ const styles = (theme: Theme) =>
     },
     submit: {
       margin: theme.spacing(3, 0, 2),
-      backgroundColor: '#33c9dc'
+      backgroundColor: '#a4bd83'
     },
   });
 
-
-class LoginPage extends Component {
+class RegisterPage extends Component {
   state = {
     username: '',
     password: '',
   };
 
-  login = (event) => {
+  registerUser = (event) => {
     event.preventDefault();
 
     if (this.state.username && this.state.password) {
       this.props.dispatch({
-        type: 'LOGIN',
+        type: 'REGISTER',
         payload: {
           username: this.state.username,
           password: this.state.password,
         },
       });
     } else {
-      this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
+      this.props.dispatch({ type: 'REGISTRATION_INPUT_ERROR' });
     }
-  } // end login
+  } // end registerUser
 
   handleInputChangeFor = propertyName => (event) => {
     this.setState({
       [propertyName]: event.target.value,
-    })
+    });
   }
 
-    render () {
-
+  render() {
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-          {/* <div>
-            {this.props.store.errors.loginMessage && (
-             <h2
-                className="alert"
-                role="alert"
-              >
-                {this.props.store.errors.loginMessage}
+        <div>
+          {this.props.errors.registrationMessage && (
+            <h2
+              className="alert"
+              role="alert"
+            >
+              {this.props.errors.registrationMessage}
             </h2>
-            )}
-          </div> */}
-          
+          )}
+        </div>
+
+
         <div className={this.props.classes.paper}>
           <Avatar className={this.props.classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Register User
             </Typography>
-          <form className={this.props.classes.form} >
+          <form className={this.props.classes.form} onSubmit={this.registerUser}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -105,7 +101,6 @@ class LoginPage extends Component {
               id="Username"
               label="Username"
               name="Username"
-              autoComplete="Username"
               autoFocus
               value={this.state.username}
               onChange={this.handleInputChangeFor('username')}
@@ -119,29 +114,25 @@ class LoginPage extends Component {
               label="Password"
               type="password"
               id="password"
-              autoComplete="current-password"
               value={this.state.password}
               onChange={this.handleInputChangeFor('password')}
             />
-            
             <Button
+              className="register"
               type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={this.props.classes.submit}
-              onClick={this.login}
+              name="submit"
+              value="Register"
+              onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
             >
-              Sign In
-          </Button>
+              Login
+            </Button>
 
           </form>
         </div>
 
       </Container>
-      )
-    }
+    );
   }
-  
-  export default connect(mapStoreToProps)(withStyles(styles)(LoginPage));
-  
+}
+
+export default connect(mapStoreToProps)(withStyles(styles)(RegisterPage));
