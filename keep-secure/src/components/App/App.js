@@ -9,17 +9,19 @@ import {
 } from 'react-router-dom';
 import LoginPage from '../LoginPage/LoginPage';
 import UserPage from '../UserPage/UserPage';
-import Nav from '../Nav/Nav';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import axios from 'axios';
 import './App.css';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.dispatch({ type: 'FETCH_USER' });
+  }
   render () {
     return (
       <Router>
         <div>
-          <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />
@@ -44,7 +46,7 @@ class App extends Component {
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
             <ProtectedRoute
               exact
-              path="/admin"
+              path="/home"
               component={UserPage}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,

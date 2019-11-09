@@ -20,3 +20,15 @@
 .App-link {
   color: #09d3ac;
 }
+
+/* This line makes the "Register" and "Login" buttons look like links */
+.link-button {
+  background:none;
+  color:blue;
+  border:none;
+  padding:0;
+  font: inherit;
+  outline:0;
+  border-bottom:1px solid #444; 
+  cursor: pointer;
+}

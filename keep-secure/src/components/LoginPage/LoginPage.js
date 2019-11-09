@@ -73,12 +73,12 @@ class LoginPage extends Component {
     })
   }
 
-    render () {
+  render() {
 
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-          {/* <div>
+        {/* <div>
             {this.props.store.errors.loginMessage && (
              <h2
                 className="alert"
@@ -88,7 +88,7 @@ class LoginPage extends Component {
             </h2>
             )}
           </div> */}
-          
+
         <div className={this.props.classes.paper}>
           <Avatar className={this.props.classes.avatar}>
             <LockOutlinedIcon />
@@ -123,7 +123,7 @@ class LoginPage extends Component {
               value={this.state.password}
               onChange={this.handleInputChangeFor('password')}
             />
-            
+
             <Button
               type="submit"
               fullWidth
@@ -137,11 +137,19 @@ class LoginPage extends Component {
 
           </form>
         </div>
-
+        {/*This button takes the user to the registration  page */}
+        <center>
+          <button
+            type="button"
+            className="link-button"
+            onClick={() => { this.props.dispatch({ type: 'SET_TO_REGISTER_MODE' }) }}
+          >
+            Register
+          </button>
+        </center>
       </Container>
-      )
-    }
+    )
   }
-  
-  export default connect(mapStoreToProps)(withStyles(styles)(LoginPage));
-  
+}
+
+export default connect(mapStoreToProps)(withStyles(styles)(LoginPage));

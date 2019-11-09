@@ -37,7 +37,7 @@ const styles = (theme: Theme) =>
     },
     submit: {
       margin: theme.spacing(3, 0, 2),
-      backgroundColor: '#a4bd83'
+      backgroundColor: '#33c9dc'
     },
   });
 
@@ -73,7 +73,7 @@ class RegisterPage extends Component {
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <div>
+        {/* <div>
           {this.props.errors.registrationMessage && (
             <h2
               className="alert"
@@ -82,7 +82,7 @@ class RegisterPage extends Component {
               {this.props.errors.registrationMessage}
             </h2>
           )}
-        </div>
+        </div> */}
 
 
         <div className={this.props.classes.paper}>
@@ -90,7 +90,7 @@ class RegisterPage extends Component {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Register User
+            Sign Up
             </Typography>
           <form className={this.props.classes.form} onSubmit={this.registerUser}>
             <TextField
@@ -118,17 +118,28 @@ class RegisterPage extends Component {
               onChange={this.handleInputChangeFor('password')}
             />
             <Button
-              className="register"
               type="submit"
               name="submit"
+              fullWidth
               value="Register"
-              onClick={() => { this.props.dispatch({ type: 'SET_TO_LOGIN_MODE' }) }}
+              className={this.props.classes.submit}
+              onSubmit={this.registerUser}
             >
-              Login
+              Sign Up
             </Button>
 
           </form>
         </div>
+        {/*This button takes the user to the login page */}
+        <center>
+          <button
+            type="button"
+            className="link-button"
+            onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
+          >
+            Login
+          </button>
+        </center>
 
       </Container>
     );
