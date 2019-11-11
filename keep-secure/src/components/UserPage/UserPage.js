@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import LogOutButton from '../LogOutButton/LogOutButton'
 import {
+    Box,
     Button,
     CssBaseline,
     Container,
@@ -39,6 +40,19 @@ class UserPage extends Component {
 
     render() {
         const userName = this.props.store.user.username;
+        const testData = `this is some test text to see what the last message would like. I wonder
+            if I got rid of that div. I think I need to put it back because it will look right to
+            me. I am getting tired imma head to bed after this. "At vero eos et accusamus et iusto 
+            odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti 
+            quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, 
+            similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum 
+            fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum 
+            soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat 
+            facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem 
+            quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates 
+            repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente 
+            delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus 
+            asperiores repellat."`
         return (
             <Container component="main" maxWidth="lg">
                 <CssBaseline />
@@ -56,7 +70,9 @@ class UserPage extends Component {
                         <Typography
                             variant='subtitle1'
                         >
-                            Enter a New secret message:
+                            <Box fontWeight="fontWeightBold">
+                                Enter a New secret message:
+                            </Box>
                         </Typography>
                         <TextField
                             id="outlined-multiline-static"
@@ -71,22 +87,25 @@ class UserPage extends Component {
                         />
                         <Button
                             color="primary"
-                            size="medium"
                             type="submit"
                             variant="contained"
                             onClick={this.sendSecret}
+                            fullWidth
                         >
                             Send Secret
                         </Button>
 
                     </Grid>
+                    <br />
                     <Grid item sm={12} className='last-message'>
                         <Typography
                             variant='subtitle2'
                         >
-                            Your Last Message:
+                            <Box fontWeight="fontWeightBold">
+                                Your Last Message:
+                            </Box>
                         </Typography>
-                        <TextField
+                        {/* <TextField
                             id="outlined-multiline-static"
                             label="Secret Message"
                             multiline
@@ -97,7 +116,11 @@ class UserPage extends Component {
                                 field. I will work on capturing the text from the field above next! "
                             margin="normal"
                             variant="outlined"
-                        />
+                        /> */}
+                        {testData}
+                        {/* <div className='display-area'>
+
+                        </div> */}
                     </Grid>
                     <Grid item xs={12}>
                         <LogOutButton />

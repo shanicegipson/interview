@@ -1,3 +1,5 @@
-.last-message{
-    border: 2px solid blue;
+.last-message {
+    border: 2px solid rgb(6, 6, 182);
+    border-radius: 5px;
+    width: 100%;
 }
