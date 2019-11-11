@@ -24,7 +24,6 @@ class Map extends Component {
     }), () => {
       ////if modal is open, get listing data from reducer
       if (this.state.modalIsShowing == true) {
-        console.log(data, 'what is this info for the modal');
         this.props.dispatch({ type: 'DISPLAY_REVIEW', payload: data })
       }
     }
@@ -33,7 +32,6 @@ class Map extends Component {
 
   render() {
     let reviewArray = this.props.store.review
-    console.log(reviewArray, 'array of reviews?');
 
     //Maps through array to get info for each review
 

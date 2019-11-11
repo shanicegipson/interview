@@ -7,7 +7,6 @@ import './Modal.css';
 class Modal extends Component {
     render() {
         ////cleaning up the address
-        console.log('IS this the addresssssssss?', this.props.store.modal );
         let newAddress = '';
         if (this.props.store.modal.address) {
             let address = this.props.store.modal.address;

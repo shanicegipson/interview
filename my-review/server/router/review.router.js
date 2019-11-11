@@ -27,13 +27,12 @@ router.get('/', (req, res) => {
 
 //POST request to send review info from form to DB after getting lat and lng from google
 router.post('/', (req, res) => {
-    console.log(req.body, 'this is the info on server');
+
     let reviewInfo = req.body;
-    console.log(reviewInfo.address);
+
     googleMapsClient.geocode({ address: reviewInfo.address })
         .asPromise()
         .then((response) => {
-            console.log(response.json.results[0].geometry.location, 'this should be lat and long');
             const coordinates = response.json.results[0].geometry.location
             reviewInfo.lat = coordinates.lat;
             reviewInfo.lng = coordinates.lng;

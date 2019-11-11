@@ -35,7 +35,6 @@ class Form extends Component {
         this.setState({
             [propertyName]: event.target.value,
         })
-        console.log(event.target.value, 'captured value')
     }
 
 
