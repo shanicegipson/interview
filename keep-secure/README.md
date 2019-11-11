@@ -18,7 +18,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - React, Redux-Saga, Express, Node.js, PostgreSQL
 - Passport.js, bcrypt, cryptr, pg, axios
-- Google Maps Geolocation API, Material-UI
+-  Material-UI
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
