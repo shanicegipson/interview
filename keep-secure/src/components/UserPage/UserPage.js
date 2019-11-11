@@ -14,17 +14,22 @@ import {
 import './Userpage.css';
 
 class UserPage extends Component {
+    componentDidMount() {
+        this.props.dispatch({ type: 'GET_REVIEWS' });
+      }
     state = {
         secretMessage: '',
     }
+    
 
     sendSecret = (event) => {
-        event.preventDefault();
-        console.log('This is the updated State From form:', this.state.secretMessage);
-
-        const testData = 'sending this a test!!!!!';
+        // event.preventDefault();
+        const data = {
+            secretMessage:this.state.secretMessage,
+            user: this.props.store.user.id
+        }
     
-    this.props.dispatch({type: 'POST_SECRET', payload: this.state.secretMessage});
+    this.props.dispatch({type: 'POST_SECRET', payload: data});
         
     this.setState({
         secretMessage: '',
@@ -40,19 +45,7 @@ class UserPage extends Component {
 
     render() {
         const userName = this.props.store.user.username;
-        const testData = `this is some test text to see what the last message would like. I wonder
-            if I got rid of that div. I think I need to put it back because it will look right to
-            me. I am getting tired imma head to bed after this. "At vero eos et accusamus et iusto 
-            odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti 
-            quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, 
-            similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum 
-            fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum 
-            soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat 
-            facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem 
-            quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates 
-            repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente 
-            delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus 
-            asperiores repellat."`
+        const messageForDisplay = this.props.store.message;
         return (
             <Container component="main" maxWidth="lg">
                 <CssBaseline />
@@ -105,22 +98,9 @@ class UserPage extends Component {
                                 Your Last Message:
                             </Box>
                         </Typography>
-                        {/* <TextField
-                            id="outlined-multiline-static"
-                            label="Secret Message"
-                            multiline
-                            fullWidth
-                            rows="4"
-                            defaultValue="This will be the last message that was sent by user or empty for a 
-                                new user. I am trying to see what it may look like if a lot of text is in this
-                                field. I will work on capturing the text from the field above next! "
-                            margin="normal"
-                            variant="outlined"
-                        /> */}
-                        {testData}
-                        {/* <div className='display-area'>
-
-                        </div> */}
+                        
+                        {messageForDisplay}
+                        
                     </Grid>
                     <Grid item xs={12}>
                         <LogOutButton />
