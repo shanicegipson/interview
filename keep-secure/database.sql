@@ -20,5 +20,3 @@ JOIN "user" ON "user"."id" = "secrets"."user_id"
 JOIN "messages" ON "messages"."id" = "secrets"."messages_id"
 where "user"."id" = 1;
 
-INSERT INTO "messages" ("message")
-VALUES ('This is the second test message');
