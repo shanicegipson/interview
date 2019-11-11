@@ -10,7 +10,7 @@ Below you find a basic description for two applications *keep-secure* and *my-re
 
  
 ## My-Review:
-* This is a code submission for mySideWalk code challenge Problem #4. cd into my-review folder to run application and follow instructions on [my-review README.md](https://github.com/shanicegipson/interview/tree/master/my-review), or click on the link to get the application running.
+* This is a code submission for mySideWalk code challenge Problem #4. cd into my-review folder to run application and follow instructions on [my-review README.md](https://github.com/shanicegipson/interview/blob/master/my-review/README.md), or click on the link to get the application running.
 
 ### Description
 * My Review is a one page application that allows users to enter in a Business name, address and a review and click the submit button. The results will show on the map which is focused on Kansas City, MO. You can zoom in and out to see markers outside of view. By Clicking on marker a modal will appear with review information, click close to exit modal.
