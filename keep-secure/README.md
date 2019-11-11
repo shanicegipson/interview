@@ -13,3 +13,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Usage
 1. Register user by clicking on the register button
 2. Enter messages at will!
+
+## Built With
+
+- React, Redux-Saga, Express, Node.js, PostgreSQL
+- Passport.js, bcrypt, cryptr, pg, axios
+- Google Maps Geolocation API, Material-UI
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
