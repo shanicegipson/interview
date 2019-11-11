@@ -15,8 +15,11 @@ import { put, takeLatest } from 'redux-saga/effects';
 //POST request to send message info from form to server to be encrypted
 function* postSecretMessage(action) {
     try {
-        console.log('action.payload message in the saga:', action.payload);
-       yield axios.post('/api/secret', action.payload);  
+    
+        const data = {
+            secretMessage: action.payload
+        }
+       yield axios.post('/api/secret', data);  
     //    yield put({ type: 'GET_REVIEWS' });
     }
     catch(err) {

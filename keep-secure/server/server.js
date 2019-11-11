@@ -1,6 +1,4 @@
 const express = require('express');
-require('dotenv').config();
-
 const app = express();
 const bodyParser = require('body-parser');
 const sessionMiddleware = require('./modules/session-middleware');
@@ -24,7 +22,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-app.use('/api/secret/', messageRouter);
+app.use('/api/secret', messageRouter);
 
 // Serve static files
 app.use(express.static('build'));

@@ -14,12 +14,14 @@ import './Userpage.css';
 
 class UserPage extends Component {
     state = {
-        secretMessage: ''
+        secretMessage: '',
     }
 
     sendSecret = (event) => {
         event.preventDefault();
         console.log('This is the updated State From form:', this.state.secretMessage);
+
+        const testData = 'sending this a test!!!!!';
     
     this.props.dispatch({type: 'POST_SECRET', payload: this.state.secretMessage});
         
@@ -65,7 +67,6 @@ class UserPage extends Component {
                             placeholder="Enter New Secret Message for Encryption"
                             margin="normal"
                             variant="outlined"
-                            value={this.state.secretMessage}
                             onChange={this.handleInputChange}
                         />
                         <Button
