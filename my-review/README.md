@@ -21,3 +21,6 @@ You will need a GoogleMaps Javascript API Key in the `.env` file labeled:
 - React, Redux-Saga, Express, Node.js, PostgreSQL
 - Passport.js, bcrypt, pg, axios
 - Google Maps Geolocation API, Material-UI
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
