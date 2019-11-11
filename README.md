@@ -4,7 +4,7 @@
 Below you find a basic description for two applications *keep-secure* and *my-review* in response to [mysidewalk code challenge](https://github.com/mysidewalk/interview). To find specifics such as how to run each project, look at thier respective README.md or look below to find a link
 
 ## Keep-Secure:
-* This is a code submission for mySideWalk code challenge Problem #3. cd into keep-secure folder to run application and follow instructions on [keep-secure README.md](https://github.com/shanicegipson/interview/blob/master/keep-secure/README.md), or click on the link to get the application running.
+* This is a code submission for mySideWalk code challenge Problem #3. cd into keep-secure folder to run application and follow instructions on keep-secure/[README.md](https://github.com/shanicegipson/interview/blob/master/keep-secure/README.md), or click on the link to get the application running.
 ### Description
 * Keep Secure is an application that allows users to register and login to enter in a message with encryption button. The message is encrypted and stored in the database. The last message displays below input field to show last secret message sent for ecryption in plain text.
 
