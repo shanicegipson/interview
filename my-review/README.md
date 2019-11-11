@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Deployment Setup
+
 ### Installation
 Use the package manager [npm](https://www.npmjs.com/get-npm) to install npm.
 
@@ -13,5 +15,6 @@ Use the package manager [npm](https://www.npmjs.com/get-npm) to install npm.
 1. `npm install`
 
 ## Available Scripts
+*
 1. `npm run server`
 2. `npm run client`
